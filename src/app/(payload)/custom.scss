@@ -1,0 +1,73 @@
+/* Estilos Neubrutalistas para o Painel Admin do Payload CMS */
+
+:root {
+  --theme-bg-body: #FFFDF5;
+  --theme-bg-elevation-1: #FFFDF5;
+  --theme-bg-elevation-2: #ffffff;
+  --theme-border-color: #000000;
+  --theme-elevation-50: #FFFDF5;
+  --theme-elevation-100: #ffffff;
+  --theme-elevation-150: #ffffff;
+  --theme-elevation-200: #FFFDF5;
+  
+  --font-body: 'Inter', system-ui, sans-serif;
+  --font-mono: monospace;
+
+  /* Cores de Acento Neubrutalistas */
+  --color-accent-yellow: #FFD23F;
+  --color-accent-pink: #FF6B6B;
+  --color-accent-blue: #74B9FF;
+}
+
+[data-theme='dark'] {
+  --theme-bg-body: #242424;
+  --theme-bg-elevation-1: #2d2d2d;
+  --theme-bg-elevation-2: #383838;
+  --theme-border-color: #000000;
+  --theme-elevation-50: #242424;
+  --theme-elevation-100: #2d2d2d;
+  --theme-elevation-150: #383838;
+  --theme-elevation-200: #2d2d2d;
+}
+
+/* Bordas Grossas e Rígidas (Bordas Quadradas Neubrutalistas) */
+body,
+.btn,
+.card,
+.input,
+input,
+select,
+textarea,
+.field-type,
+.table,
+.nav,
+.sidebar,
+.header {
+  border-radius: 0px !important;
+}
+
+/* Efeito Neubrutalista nos Botões Principais */
+.btn--style-primary {
+  background-color: var(--color-accent-yellow) !important;
+  color: #000000 !important;
+  border: 3px solid #000000 !important;
+  box-shadow: 4px 4px 0 0 #000000 !important;
+  font-weight: 700 !important;
+  transition: transform 0.1s ease, box-shadow 0.1s ease !important;
+}
+
+.btn--style-primary:hover {
+  transform: translate(-2px, -2px) !important;
+  box-shadow: 6px 6px 0 0 #000000 !important;
+}
+
+.btn--style-primary:active {
+  transform: translate(2px, 2px) !important;
+  box-shadow: 2px 2px 0 0 #000000 !important;
+}
+
+/* Cards com Sombra Dura */
+.card, .table-container, .collection-list {
+  border: 3px solid #000000 !important;
+  box-shadow: 4px 4px 0 0 #000000 !important;
+}
