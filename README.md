@@ -40,12 +40,19 @@ Revise o arquivo gerado em `src/migrations` antes de commitar.
 
 O build `standalone` do Next.js remove o CLI do Payload e os arquivos `.ts`. As migrations de produção rodam de forma isolada via `Dockerfile.migrate`.
 
+Para executar o container de migrations, as seguintes **variáveis de ambiente** são necessárias:
+
+- `DATABASE_URI` (essencial): String de conexão com o banco de dados PostgreSQL.
+- `PAYLOAD_SECRET` (essencial): Chave secreta do Payload.
+- `FRONTEND_URL`, `PAYLOAD_PUBLIC_SERVER_URL` e `CORS_ORIGINS` (opcionais): Possuem valores padrão na configuração e não quebrarão a migration se omitidas.
+
 Processo:
 
 1. Crie um serviço secundário do tipo "Compose" (ou um Job) na plataforma de hospedagem.
 2. Configure o build para usar o `Dockerfile.migrate`.
-3. Defina a política de reinicialização para **não reiniciar** (`restart: "no"` ou `condition: none` no Docker Swarm).
-4. Ao fazer o deploy desse serviço, o container roda `pnpm run payload migrate`, aplica as migrations pendentes e encerra — sem afetar o servidor web.
+3. Defina as variáveis de ambiente necessárias (`DATABASE_URI` e `PAYLOAD_SECRET`).
+4. Defina a política de reinicialização para **não reiniciar** (`restart: "no"` ou `condition: none` no Docker Swarm).
+5. Ao fazer o deploy desse serviço, o container roda `pnpm run payload migrate`, aplica as migrations pendentes e encerra — sem afetar o servidor web.
 
 ---
 
